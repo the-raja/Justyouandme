@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,body,#root {
+    @apply h-full w-full;
+  }
+
+  body {
+    @apply font-sans bg-primary-bg text-text-primary;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.02em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-text-primary tracking-wider;
+  }
+
+  /* Enhanced button styling for red theme */
+  button {
+    @apply transition-all duration-300;
+  }
+
+  /* Selection color for red theme */
+  ::selection {
+    @apply bg-accent-red/30 text-text-primary;
+  }
+}
+.heart {
+  position: absolute;
+  bottom: -40px;
+  color: rgba(255, 120, 150, 0.25);
+  animation: floatUp 35s linear infinite;
+  filter: blur(0.5px);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh);
+    opacity: 10;
+  }
+}
