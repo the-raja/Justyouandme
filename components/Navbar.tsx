@@ -22,10 +22,15 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: -20 }}   // 👈 animate from top
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2, ease: 'easeOut', delay: 0.8 }}
-      className="fixed bottom-8 left-0 right-0 flex justify-center pointer-events-none z-50"
+      className="
+        fixed top-6 left-0 right-0
+        flex justify-center
+        pointer-events-none
+        z-50
+      "
     >
       <div className="pointer-events-auto bg-primary-bg/70 backdrop-blur-lg px-6 py-3 rounded-full shadow-lg ring-1 ring-black ring-opacity-10">
         <ul className="flex items-center gap-x-6 text-sm text-text-secondary">
