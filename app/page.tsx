@@ -1,16 +1,16 @@
-"use client"
+'use client';
 
-import React from "react"
-import { motion } from "framer-motion"
-import AutoFadeText from "../components/FadeText"
-import openingLines from "../data/openingLines.json"
+import React from 'react';
+import { motion } from 'framer-motion';
+import AutoFadeText from '../components/FadeText';
+import openingLines from '../data/openingLines.json';
 
 export default function Home() {
   return (
     <div
       className="w-full h-full flex flex-col items-center justify-center relative overflow-hidden bg-[#14070b]"
       style={{
-        animation: "breathe 8s ease-in-out infinite",
+        animation: 'breathe 8s ease-in-out infinite',
       }}
     >
       {/* ───── SOFT LIGHT CEILING / SPOTLIGHT ───── */}
@@ -36,10 +36,10 @@ export default function Home() {
             key={i}
             className="absolute rounded-full"
             style={{
-              width: Math.random() * 2 + 1 + "px",
-              height: Math.random() * 2 + 1 + "px",
-              left: Math.random() * 100 + "%",
-              top: Math.random() * 100 + "%",
+              width: Math.random() * 2 + 1 + 'px',
+              height: Math.random() * 2 + 1 + 'px',
+              left: Math.random() * 100 + '%',
+              top: Math.random() * 100 + '%',
               background: `rgba(166, 60, 79, ${Math.random() * 0.25 + 0.08})`,
               animation: `shimmer ${4 + Math.random() * 3}s ease-in-out infinite`,
               animationDelay: `${i * 0.4}s`,
@@ -52,7 +52,7 @@ export default function Home() {
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.8, ease: "easeOut" }}
+        transition={{ duration: 1.8, ease: 'easeOut' }}
         className="relative z-[5] text-center px-6"
       >
         {/* Auto-fading Opening Line */}
@@ -60,7 +60,7 @@ export default function Home() {
           <h1
             className="font-serif text-3xl md:text-4xl lg:text-5xl text-text-primary leading-relaxed tracking-wide"
             style={{
-              textShadow: "0 2px 12px rgba(0,0,0,0.6)",
+              textShadow: '0 2px 12px rgba(0,0,0,0.6)',
             }}
           >
             <AutoFadeText lines={openingLines} duration={4500} />
@@ -71,7 +71,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, width: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut", delay: 0.6 }}
+          transition={{ duration: 1.5, ease: 'easeOut', delay: 0.6 }}
           className="mx-auto h-[1px] bg-gradient-to-r from-transparent via-accent-red to-transparent"
         />
 
@@ -79,7 +79,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut", delay: 1.5 }}
+          transition={{ duration: 1.5, ease: 'easeOut', delay: 1.5 }}
           className="mt-12"
         >
           <p className="font-serif text-sm md:text-base text-text-secondary/70 tracking-widest uppercase">
@@ -92,13 +92,11 @@ export default function Home() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 2, ease: "easeOut", delay: 2.5 }}
+        transition={{ duration: 2, ease: 'easeOut', delay: 2.5 }}
         className="absolute bottom-8 left-0 right-0 text-center z-[5]"
       >
-        <p className="text-xs text-text-secondary/40">
-          {/* scroll or navigate above */}
-        </p>
+        <p className="text-xs text-text-secondary/40">{/* scroll or navigate above */}</p>
       </motion.div>
     </div>
-  )
+  );
 }

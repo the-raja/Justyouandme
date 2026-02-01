@@ -1,7 +1,11 @@
-"use client"
+'use client';
 
-import React, { useEffect, useRef, useState } from "react"
-import { motion } from "framer-motion"
+import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+
+// Workaround: alias motion.div/p to any-typed components to avoid framer-motion typing mismatches
+const AnyMotionDiv: any = motion.div;
+const AnyMotionP: any = motion.p;
 
 // ─── SECRET MESSAGES ───
 const secretMessages = [
@@ -32,91 +36,84 @@ So stay.
 Just for a moment.
 
 Nothing else exists here
-but you and me.`
-]
+but you and me.`,
+];
 
 // ─── MUSIC FILES (from /public/audio) ───
-const songs = [
-  "/audio/song1.mp3",
-  "/audio/song1.mp3",
-  "/audio/song1.mp3",
-  "/audio/song1.mp3",
-]
+const songs = ['/audio/song1.mp3', '/audio/song1.mp3', '/audio/song1.mp3', '/audio/song1.mp3'];
 
 export default function OnlyYouPage() {
-  const [pos, setPos] = useState({ x: -400, y: -400 })
-  const [message, setMessage] = useState("")
-  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const [pos, setPos] = useState({ x: -400, y: -400 });
+  const [message, setMessage] = useState('');
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Random message on load
   useEffect(() => {
-    const random =
-      secretMessages[Math.floor(Math.random() * secretMessages.length)]
-    setMessage(random)
-  }, [])
+    const random = secretMessages[Math.floor(Math.random() * secretMessages.length)];
+    setMessage(random);
+  }, []);
 
   // Random music autoplay
   useEffect(() => {
-    const audio = audioRef.current
-    if (!audio) return
+    const audio = audioRef.current;
+    if (!audio) return;
 
-    audio.volume = 0.35
-    audio.loop = true
+    audio.volume = 0.35;
+    audio.loop = true;
 
     const playAudio = () => {
       audio.play().catch(() => {
         // browser blocked autoplay — wait for interaction
-      })
-    }
+      });
+    };
 
-    playAudio()
+    playAudio();
 
     // Try again on first interaction if blocked
     const resume = () => {
-      audio.play().catch(() => {})
-      window.removeEventListener("click", resume)
-      window.removeEventListener("touchstart", resume)
-    }
+      audio.play().catch(() => {});
+      window.removeEventListener('click', resume);
+      window.removeEventListener('touchstart', resume);
+    };
 
-    window.addEventListener("click", resume)
-    window.addEventListener("touchstart", resume)
+    window.addEventListener('click', resume);
+    window.addEventListener('touchstart', resume);
 
     return () => {
-      audio.pause()
-      audio.currentTime = 0
-    }
-  }, [])
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
 
   // Mouse + touch tracking
   useEffect(() => {
-    const move = (x: number, y: number) => setPos({ x, y })
-    const mouse = (e: MouseEvent) => move(e.clientX, e.clientY)
+    const move = (x: number, y: number) => setPos({ x, y });
+    const mouse = (e: MouseEvent) => move(e.clientX, e.clientY);
     const touch = (e: TouchEvent) => {
-      if (e.touches[0]) move(e.touches[0].clientX, e.touches[0].clientY)
-    }
+      if (e.touches[0]) move(e.touches[0].clientX, e.touches[0].clientY);
+    };
 
-    window.addEventListener("mousemove", mouse)
-    window.addEventListener("touchmove", touch)
+    window.addEventListener('mousemove', mouse);
+    window.addEventListener('touchmove', touch);
 
     return () => {
-      window.removeEventListener("mousemove", mouse)
-      window.removeEventListener("touchmove", touch)
-    }
-  }, [])
+      window.removeEventListener('mousemove', mouse);
+      window.removeEventListener('touchmove', touch);
+    };
+  }, []);
 
   // Pick random song
-  const randomSong = songs[Math.floor(Math.random() * songs.length)]
+  const randomSong = songs[Math.floor(Math.random() * songs.length)];
 
   return (
     <div className="fixed inset-0 overflow-hidden flex items-center justify-center bg-gradient-to-br from-[#1a0a0e] via-[#2a0f16] to-[#0e0608] text-[#f5eaea]">
-
       {/* 🎵 Hidden Audio */}
       <audio ref={audioRef} src={randomSong} preload="auto" />
 
       {/* ❤️ Floating Hearts */}
       <div className="absolute inset-0 pointer-events-none z-0">
         {[...Array(10)].map((_, i) => (
-          <motion.div
+          <AnyMotionDiv
             key={i}
             className="absolute w-6 h-6 border border-rose-400/20 rounded-[50%_50%_0_0] rotate-45 blur-[1.5px]"
             style={{
@@ -128,7 +125,7 @@ export default function OnlyYouPage() {
               duration: 40 + Math.random() * 30,
               repeat: Infinity,
               delay: Math.random() * 20,
-              ease: "linear",
+              ease: 'linear',
             }}
           />
         ))}
@@ -139,7 +136,7 @@ export default function OnlyYouPage() {
         className="absolute inset-0 z-10 pointer-events-none opacity-[0.035]"
         style={{
           backgroundImage:
-            "url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"120\" height=\"120\"><filter id=\"n\"><feTurbulence type=\"fractalNoise\" baseFrequency=\"0.8\" numOctaves=\"4\"/></filter><rect width=\"120\" height=\"120\" filter=\"url(%23n)\" opacity=\"0.4\"/></svg>')",
+            'url(\'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4"/></filter><rect width="120" height="120" filter="url(%23n)" opacity="0.4"/></svg>\')',
         }}
       />
 
@@ -158,25 +155,25 @@ export default function OnlyYouPage() {
       </div>
 
       {/* 🖤 Text */}
-      <motion.div
+      <AnyMotionDiv
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2.2 }}
         className="relative z-40 max-w-[380px] px-6 text-center font-serif text-[1.35rem] leading-[1.9] text-[#f5eaea]/80"
-        style={{ textShadow: "0 2px 6px rgba(0,0,0,0.6)" }}
+        style={{ textShadow: '0 2px 6px rgba(0,0,0,0.6)' }}
       >
-        {message.split("\n").map((line, i) => (
-          <motion.p
+        {message.split('\n').map((line, i) => (
+          <AnyMotionP
             key={i}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 + i * 0.6 }}
-            className={line.trim() === "" ? "h-5" : ""}
+            className={line.trim() === '' ? 'h-5' : ''}
           >
             {line}
-          </motion.p>
+          </AnyMotionP>
         ))}
-      </motion.div>
+      </AnyMotionDiv>
     </div>
-  )
+  );
 }

@@ -3,6 +3,7 @@
 This repository is a private, frontend-only Next.js app scaffold for the "JUST YOU & ME" project.
 
 What I added:
+
 - Next.js app router structure under `/app`
 - Minimal components in `/components`
 - Data stubs in `/data`
@@ -11,6 +12,7 @@ What I added:
 Next steps (local):
 
 Windows (PowerShell):
+
 ```powershell
 npm install
 npm run dev

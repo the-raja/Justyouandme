@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 export default function GlobalHearts() {
   return (
@@ -17,5 +17,5 @@ export default function GlobalHearts() {
         </span>
       ))}
     </div>
-  )
+  );
 }

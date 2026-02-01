@@ -1,9 +1,9 @@
-"use client"
+'use client';
 
-import React from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { motion } from 'framer-motion'
+import React from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
 
 const navItems = [
   { href: '/', label: 'You' },
@@ -11,13 +11,13 @@ const navItems = [
   { href: '/memories', label: 'Moments' },
   { href: '/us', label: 'Us' },
   { href: '/miss-me', label: 'Here' },
-]
+];
 
 export default function Navbar() {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   if (pathname === '/only-you') {
-    return null
+    return null;
   }
 
   return (
@@ -52,5 +52,5 @@ export default function Navbar() {
         </ul>
       </div>
     </motion.nav>
-  )
+  );
 }

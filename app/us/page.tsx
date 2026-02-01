@@ -1,33 +1,32 @@
-"use client"
+'use client';
 
-import React from "react"
-import Image from "next/image"
-import FadeText from "../../components/FadeText"
-import AudioController from "../../components/AudioController"
+import React from 'react';
+import Image from 'next/image';
+import FadeText from '../../components/FadeText';
+import AudioController from '../../components/AudioController';
 
 // ─── USER CONFIGURATION ───
 const backgroundMedia = {
-  src: "/images/placeholder-1.svg",
-  alt: "A soft, abstract background representing our shared space.",
-}
+  src: '/images/placeholder-1.svg',
+  alt: 'A soft, abstract background representing our shared space.',
+};
 
 const audio = {
-  src: "/audio/placeholder.mp3",
+  src: '/audio/placeholder.mp3',
   play: false,
-}
+};
 
 const usLines = [
-  "This place is ours — quietly present, always.",
-  "Nothing else is needed here.",
-  "You are Mine and I am Yours,",
-  "In this space, just you and me.",
-]
+  'This place is ours — quietly present, always.',
+  'Nothing else is needed here.',
+  'You are Mine and I am Yours,',
+  'In this space, just you and me.',
+];
 // ─────────────────────────
 
 export default function UsPage() {
   return (
     <div className="relative w-full h-screen overflow-hidden bg-[#14070b] text-[#f5eaea]">
-
       {/* Base Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#3a141c] via-[#2a0f16] to-[#14070b]" />
 
@@ -70,5 +69,5 @@ export default function UsPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

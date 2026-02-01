@@ -5,10 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "aceternity-ui": "^0.2.2",
+    "eslint": "^9.39.2",
     "framer-motion": "^10.12.16",
     "next": "14.2.0",
     "react": "18.2.0",
@@ -19,6 +21,7 @@
     "@types/react": "19.2.10",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.24",
+    "prettier": "^3.8.1",
     "tailwindcss": "^3.4.7",
     "typescript": "^5.6.2"
   }

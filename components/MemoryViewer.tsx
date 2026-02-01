@@ -1,25 +1,25 @@
-"use client"
+'use client';
 
-import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import Image from 'next/image'
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 type MemoryItem = {
-  type: 'image' | 'video'
-  src: string
-  caption: string
-}
+  type: 'image' | 'video';
+  src: string;
+  caption: string;
+};
 
 export default function MemoryViewer({ item }: { item: MemoryItem }) {
-  const [isCaptionVisible, setCaptionVisible] = useState(false)
+  const [isCaptionVisible, setCaptionVisible] = useState(false);
 
   useEffect(() => {
-    setCaptionVisible(false)
-    const timer = setTimeout(() => setCaptionVisible(true), 1200)
-    return () => clearTimeout(timer)
-  }, [item])
+    setCaptionVisible(false);
+    const timer = setTimeout(() => setCaptionVisible(true), 1200);
+    return () => clearTimeout(timer);
+  }, [item]);
 
-  if (!item) return null
+  if (!item) return null;
 
   return (
     <div className="w-full mx-auto flex flex-col items-center">
@@ -53,5 +53,5 @@ export default function MemoryViewer({ item }: { item: MemoryItem }) {
         </div>
       </motion.div>
     </div>
-  )
+  );
 }

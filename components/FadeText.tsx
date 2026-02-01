@@ -1,39 +1,36 @@
-"use client"
+'use client';
 
-import { motion, AnimatePresence } from "framer-motion"
-import { useEffect, useRef, useState } from "react"
+import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 
 interface FadeTextProps {
-  lines: string[]
-  duration?: number
+  lines: string[];
+  duration?: number;
 }
 
-export default function FadeText({
-  lines,
-  duration = 4500,
-}: FadeTextProps) {
-  const [mounted, setMounted] = useState(false)
+export default function FadeText({ lines, duration = 4500 }: FadeTextProps) {
+  const [mounted, setMounted] = useState(false);
 
   // pick random index ONLY on client
-  const startIndexRef = useRef<number | null>(null)
+  const startIndexRef = useRef<number | null>(null);
 
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    setMounted(true)
+    setMounted(true);
 
-    startIndexRef.current = Math.floor(Math.random() * lines.length)
-    setIndex(startIndexRef.current)
+    startIndexRef.current = Math.floor(Math.random() * lines.length);
+    setIndex(startIndexRef.current);
 
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % lines.length)
-    }, duration)
+      setIndex((prev) => (prev + 1) % lines.length);
+    }, duration);
 
-    return () => clearInterval(interval)
-  }, [lines.length, duration])
+    return () => clearInterval(interval);
+  }, [lines.length, duration]);
 
   // 🚫 render nothing on server
-  if (!mounted) return null
+  if (!mounted) return null;
 
   return (
     <div className="relative w-full flex justify-center">
@@ -45,7 +42,7 @@ export default function FadeText({
           exit={{ opacity: 0 }}
           transition={{
             duration: 1.8,
-            ease: "easeInOut",
+            ease: 'easeInOut',
           }}
           className="max-w-[900px] text-center leading-snug"
         >
@@ -53,5 +50,5 @@ export default function FadeText({
         </motion.div>
       </AnimatePresence>
     </div>
-  )
+  );
 }

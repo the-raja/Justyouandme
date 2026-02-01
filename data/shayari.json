@@ -1,29 +1,9 @@
 [
-  [
-    "In the quiet, if you listen...",
-    "You can hear my heart.",
-    "It's beating for you."
-  ],
-  [
-    "Close your eyes.",
-    "Breathe in, breathe out.",
-    "I'm right there with you."
-  ],
-  [
-    "Just a little reminder,",
-    "in case you forgot...",
-    "You are my everything."
-  ],
-  [
-    "The world was spinning,",
-    "but we were still.",
-    "Just you and me, in our own time."
-  ],
-  [
-    "Tum meri woh khwaish ho,",
-    "Jo har dua mein pehle aati hai.",
-    "Bas saath rehna hamesha."
-  ],
+  ["In the quiet, if you listen...", "You can hear my heart.", "It's beating for you."],
+  ["Close your eyes.", "Breathe in, breathe out.", "I'm right there with you."],
+  ["Just a little reminder,", "in case you forgot...", "You are my everything."],
+  ["The world was spinning,", "but we were still.", "Just you and me, in our own time."],
+  ["Tum meri woh khwaish ho,", "Jo har dua mein pehle aati hai.", "Bas saath rehna hamesha."],
   [
     "Baatein toh bahut hoti hai sabse,",
     "Par jo sukoon tumse baat karke milta hai,",
@@ -109,11 +89,7 @@
     "Kyunki ek janam kaafi nahi hai tumhein chahne ke liye.",
     "Tum meri rooh ka hissa ho."
   ],
-  [
-    "Mohabbat toh sab karte hain,",
-    "Magar tumse jo hai, woh ibadat hai.",
-    "Tum meri bandagi ho."
-  ],
+  ["Mohabbat toh sab karte hain,", "Magar tumse jo hai, woh ibadat hai.", "Tum meri bandagi ho."],
   [
     "Tere bina har khushi adhoori lagti hai,",
     "Aur tere saath har dukh bhi kam lagta hai.",
@@ -249,9 +225,5 @@
     "Ki agla Christmas aur New Year hum sath manayein.",
     "Haqeeqat mein, ek dusre ke samne."
   ],
-  [
-    "Tu meri pehli aur aakhri mohabbat hai,",
-    "Isme koi shakk nahi.",
-    "For you, always."
-  ]
+  ["Tu meri pehli aur aakhri mohabbat hai,", "Isme koi shakk nahi.", "For you, always."]
 ]

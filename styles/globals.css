@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 @layer base {
-  html,body,#root {
+  html,
+  body,
+  #root {
     @apply h-full w-full;
   }
 
@@ -14,7 +16,12 @@
     letter-spacing: 0.02em;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-serif text-text-primary tracking-wider;
   }
 

@@ -1,10 +1,7 @@
-const { fontFamily } = require('tailwindcss/defaultTheme')
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  content: [
-    './app/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}'
-  ],
+  content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -20,22 +17,22 @@ module.exports = {
         'ink-100': '#f5f5f0',
         'ink-200': '#d1c4c7',
         'ink-300': '#8c4b58',
-        'accent': '#a63c4f',
+        accent: '#a63c4f',
       },
       fontFamily: {
         sans: ['var(--font-inter)', ...fontFamily.sans],
-        serif: ['var(--font-lora)', ...fontFamily.serif]
+        serif: ['var(--font-lora)', ...fontFamily.serif],
       },
       maxWidth: {
-        narrow: '420px'
+        narrow: '420px',
       },
       lineHeight: {
-        'relaxed': '1.8'
+        relaxed: '1.8',
       },
       letterSpacing: {
-        'wide': '0.05em'
-      }
-    }
+        wide: '0.05em',
+      },
+    },
   },
-  plugins: []
-}
+  plugins: [],
+};
